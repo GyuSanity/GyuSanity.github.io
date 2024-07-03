@@ -54,7 +54,7 @@ category_page: '/blog/categories/'
 
 hero:
   image: /public/img/LinSanity.jpg
-  caption: "안녕하세요"
+  caption: GyuSanity Blog Page
 
 # Puglins
 mathjax: true # whether support mathjax

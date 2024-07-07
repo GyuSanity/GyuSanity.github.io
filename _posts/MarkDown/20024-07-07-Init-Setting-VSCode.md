@@ -1,6 +1,6 @@
 ---
 layout: post
-title: MarkDown 사용법
+title: VS Code 세팅
 category: MarkDown
 tag: [MarkDown, VSCode]
 ---

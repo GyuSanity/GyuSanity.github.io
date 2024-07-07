@@ -1,6 +1,6 @@
 ---
 layout: post
-title: VS Code 세팅
+title: "VS Setting"
 category: MarkDown
 tag: [MarkDown, VSCode]
 ---

@@ -40,8 +40,10 @@ nav:
   Home:           
     - '/'
   Categories:
-    -  { MarkDown: '/blog/categories/#MarkDown'}
-    -  { TypeScript: '/blog/categories/#TypeScript'}
+    - '/blog/categories/'
+    - { MarkDown: '/blog/categories/#MarkDown' }
+    - { TypeScript: '/blog/categories/#TypeScript' }
+
 
 # Where are tags and categories displayed
 tag_page: '/blog/tags/'

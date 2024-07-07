@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MarkDown 유용한 PlugIn"
+title: "VSCode MarkDown 유용한 PlugIn"
 category: MarkDown
 tag: [MarkDown, VSCode]
 ---

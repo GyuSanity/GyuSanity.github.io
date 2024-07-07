@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "VS Setting"
+title: "MarkDown 사용법"
 category: MarkDown
 tag: [MarkDown, VSCode]
 ---

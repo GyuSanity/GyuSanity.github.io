@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 4. Vue.js 기본 개념 및 문법
+title: 7. Vue CLI 프로젝트 생성
 category: Vue.js
 tag: [Vue.js]
 ---

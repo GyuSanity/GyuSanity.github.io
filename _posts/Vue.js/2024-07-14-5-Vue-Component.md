@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 4. Vue.js 기본 개념 및 문법
+title: 5. Vue.js 컴포넌트
 category: Vue.js
 tag: [Vue.js]
 ---

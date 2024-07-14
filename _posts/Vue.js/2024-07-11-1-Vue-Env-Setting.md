@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Vue.js 개발환경 셋팅
+title: 1. Vue.js 개발환경 셋팅
 category: Vue.js
 tag: [Vue.js]
 ---

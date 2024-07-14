@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Vue.js란?
+title: 2. Vue.js란?
 category: Vue.js
 tag: [Vue.js]
 ---

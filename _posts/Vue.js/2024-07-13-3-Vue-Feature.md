@@ -1,9 +1,15 @@
 ---
 layout: post
-title: Vue.js Reactivity 동작 원리
+title: 3. Vue.js Reactivity 동작 원리
 category: Vue.js
 tag: [Vue.js]
 ---
+
+## Navigation Var
+
+- **[Reactivity-Proxy API](#reactivity-proxy-api)**
+- **[reactivity vue2/3 차이점](#reactivity-vue23-차이점)**
+
 
 ## Reactivity-Proxy API
 
@@ -12,7 +18,7 @@ tag: [Vue.js]
 - Console 창에 app 입력 시 Proxy 객체로 정의됨이 확인 가능하며, app.message = 'Hi'를 입력시 Hi 확인 가능
     data 객체 mesage 갑 set일 경우 proxy이 set()을 호출하며, 이때 DOM으로 쿼리 셀렉터로 div 태그에 접근하여 HTML Msg 값을 갱신
 
-- ___***객체의 내용이 변하면서 렌더링되면서 화면에 표현되는 것을 Reactivity라고 하며 Vue에서 추구하고 있음***___
+- ___객체의 내용이 변하면서 렌더링되면서 화면에 표현되는 것을 Reactivity라고 하며 Vue에서 추구하고 있음___
 
 ```javascript
 <div id="app">
@@ -45,7 +51,9 @@ tag: [Vue.js]
 ___
 
 __reference__
+
 [Vue2 Reactivity](https://v2.vuejs.org/v2/guide/reactivity.html)
+
 [Vue3 Reactivity](https://vuejs.org/guide/extras/reactivity-in-depth.html#what-is-reactivity)
 
 ___

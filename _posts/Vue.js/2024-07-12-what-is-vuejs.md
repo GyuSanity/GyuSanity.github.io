@@ -12,11 +12,15 @@ tag: [Vue.js]
 - **[WebPack](#webpack)**
 - **[Vue 코드 작성 방법](#vue-코드-작성-방법)**
 
+___
+
 ## Vue.js란?
 
 - Progressive JavaScript FrameWork로서 간단한 화면 UI 개발, 라우팅[=페이지간 이동], SSR[^SSR] 등의 애플리케이션 레벨의 개발을 지원하는 프레임워크를 말함
 - React와 더불어 실무에서 가장 많이 사용되는 FE(Front End) 개발 라이브러리이며, React에 비해 진입 장벽이 낮고 쉽게 배울 수 있음
 - 개발 생산성이 높고 자바스크립트 지식이 크게 요구 되지 않음
+
+___
 
 ## Vue2,Vue3의 차이점
 
@@ -30,6 +34,8 @@ tag: [Vue.js]
   - [vue3](https://vuejs.org)
 
 +__reference__ : [vUE3로 넘어가면서..](https://joshua1988.github.io/web-development/vuejs/vue3-coming/)
+
+___
 
 ## WebPack
 
@@ -47,7 +53,10 @@ __Reference__ : https://joshua1988.github.io/webpack-guide/webpack/what-is-webpa
   2.__필요자원미리 로딩__ : 로딩 속도를 높이기 위해 필요한 자원들은 나중에 요청하는 Lazy Loading
 - 웹 팩의 경우에는 필요한 자원은 미리 로딩하는게 아니라 그때 그때 요청하는 철학으로 탄색
 
+___
+
 ## Vue 코드 작성 방법
+
 옵션 API / 컴포지션 API 방식이 있음
 
 - __옵션 API__

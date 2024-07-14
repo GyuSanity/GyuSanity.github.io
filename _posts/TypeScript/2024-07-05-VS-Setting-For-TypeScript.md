@@ -13,6 +13,8 @@ tag: [TypeScript]
 2. Material Icon Theme : 파일 및 폴더 아이콘을 구글의 머티리얼 디자인 스타일로 변경
 - (Ctrl + Shift + p) : File Icon Theme 에서 선택
 
+___
+
 ## Etc
 
 ESLint : JavaScript와 JSX 코드에서 문법 오류를 찾고 코딩 스타일을 유지하도록 도와줌
@@ -34,7 +36,11 @@ Atom Keymap : Atom 편집기의 키보드 단축기를 VS code에서 사용할�
 Jetbrains IDE Keymap : JetBrains IDE의 단축키를 VS Code에서 사용할수 있도록 해줌   
 
 ---
+
 ## [TypeScript 설치 링크](https://github.com/joshua1988/learn-typescript)
+
 ---
+
 ## [기본 강의](https://joshua1988.github.io/ts/)
+
 ---

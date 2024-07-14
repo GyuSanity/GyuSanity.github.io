@@ -6,14 +6,10 @@ tag: [Vue.js]
 ---
 
 ## Navigation Var
-- **[Vue.js란](#Vue.js란)**
-- **[Vue2,Vue3의 차이점](#Vue2,Vue3의-차이점)**
-- **[WebPack](#WebPack)**
-- **[LIST](#LIST)**
-- **[문장강조](#문장강조)**
-- **[인용](#인용)**
-- **[링크삽입](#링크삽입)**
-- **[이미지삽입](#이미지삽입)**
+- **[Vue.js란](#vuejs란)**
+- **[Vue2,Vue3의 차이점](#vue2vue3의-차이점)**
+- **[WebPack](#webpack)**
+- **[Vue 코드 작성 방법](#vue-코드-작성-방법)**
 
 ## Vue.js란?
 - Progressive JavaScript FrameWork로서 간단한 화면 UI 개발, 라우팅[=페이지간 이동], SSR[^SSR] 등의 애플리케이션 레벨의 개발을 지원하는 프레임워크를 말함

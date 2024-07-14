@@ -5,6 +5,13 @@ category: Vue.js
 tag: [Vue.js]
 ---
 
+## Navigation Var
+
+- **[기본 vue application](#기본-vue-application)**
+- ***[vue application instance 속성 api들](#vue-application-instance-속성-api들)***
+- **[vue project 유용한 기능](#vue-project-유용한-기능)**
+- **[derective](#derective)**
+
 ## 기본 Vue Application
 
 - `Vue Application Instance` : Vue 개발을 시작할때 기본으로 생성하는 인스턴스
@@ -90,7 +97,8 @@ tag: [Vue.js]
 
 - `Vue VSCode Snippets` : 사용 시 `vbs`, `vdata`, `vmethod`로 기본 양식들을 자동완성하여 작성 가능
 
-## [derective](https://vuejs.org/api/)
+## derective
+> [Official Docs](https://vuejs.org/api/)
 
 - UI 개발을 할때 추가적인 JavaScript 코드를 작성하지 않고 사용할수 있도록 함
     - `v-if`

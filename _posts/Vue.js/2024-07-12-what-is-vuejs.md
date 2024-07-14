@@ -6,17 +6,20 @@ tag: [Vue.js]
 ---
 
 ## Navigation Var
+
 - **[Vue.js란](#vuejs란)**
 - **[Vue2,Vue3의 차이점](#vue2vue3의-차이점)**
 - **[WebPack](#webpack)**
 - **[Vue 코드 작성 방법](#vue-코드-작성-방법)**
 
 ## Vue.js란?
+
 - Progressive JavaScript FrameWork로서 간단한 화면 UI 개발, 라우팅[=페이지간 이동], SSR[^SSR] 등의 애플리케이션 레벨의 개발을 지원하는 프레임워크를 말함
 - React와 더불어 실무에서 가장 많이 사용되는 FE(Front End) 개발 라이브러리이며, React에 비해 진입 장벽이 낮고 쉽게 배울 수 있음
 - 개발 생산성이 높고 자바스크립트 지식이 크게 요구 되지 않음
 
 ## Vue2,Vue3의 차이점
+
 - 라이브러리 내부 로직 재작성(=>타입스크립트로 변경됨)
 - 주요 개발 도구들 변경
   - ex. Vue 개발자 도구, VScode 플러그인, Vite 기반 프로젝트 생성
@@ -29,9 +32,9 @@ tag: [Vue.js]
 +__reference__ : [vUE3로 넘어가면서..](https://joshua1988.github.io/web-development/vuejs/vue3-coming/)
 
 ## WebPack
+
 - WebPack이란 FE 프레임워크에서 가장 많이 사용되는 모듈 번들러이며, 여러개의 파일(모듈)로 나누어 개발한 코드를 하나의 파일(or Chunk)로 묶어 주는 도구를 말함.
 - 위에서 말하는 여러개의 모듈 = 웹 애플리케이션을 구성하는 자원(HTML/CSS/JS/Image 등)  
-
 
 Vue 프로젝트에서는 Webpack을 아래와 같은 이유로 사용함.
 1. 자바 스크립트의 변수 유효 범위 문제 해결
@@ -48,8 +51,10 @@ __Reference__ : https://joshua1988.github.io/webpack-guide/webpack/what-is-webpa
 옵션 API / 컴포지션 API 방식이 있음
 
 - __옵션 API__
+
     destructing이 없어 초기 입문자가 보기 좋을 수 있음
     createApp 인스턴스 옵션 설정이 data가 있음
+
 ```javascript
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
@@ -69,8 +74,10 @@ __Reference__ : https://joshua1988.github.io/webpack-guide/webpack/what-is-webpa
 ```
 
 - __컴포지션 API__
+ 
     컴포넌트 코드를 많이 사용하며 clean 코드를 지향하는 방식
     createApp 인스턴스 옵션 설정에 setup이 있음
+
 ```javascript
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 

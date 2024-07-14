@@ -20,6 +20,8 @@ MD를 통해 작성된 문서는 쉽게 HTML등 다른 형태의 문서로 쉽�
 - **[인용](#인용)**
 - **[링크삽입](#링크삽입)**
 - **[이미지삽입](#이미지삽입)**
+- **[이모지](#이모지)**
+- **[각주](#각주)**
 
 
 ## HEADER표현
@@ -91,3 +93,19 @@ __볼드로 진하게 만들다가*이탤릭으로 기울이고*다시 볼드로
 유형3(이미지 삽입 후, `링크 걸기`)
 [![이미지](https://theorydb.github.io/assets/img/think/2019-06-25-think-future-ai-1.png)](https://theorydb.github.io/think/2019/06/25/think-future-ai/)
 ```
+
+## 이모지
+```
+Window10 : 윈도우 키 + 마침표(.)
+Mac : Command + Control + Space Bar
+```
+
+## 각주
+```
+Info[^Info]는 인용하는 부분이다
+
+[^Info]: Information에 대한 설명이다.
+```
+Info[^Info]는 인용하는 부분이다
+
+[^Info]: Information에 대한 설명이다.

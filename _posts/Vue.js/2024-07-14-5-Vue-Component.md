@@ -110,12 +110,14 @@ ___
 - props 속성을 사용하기 위해서 하위 컴포넌트에서 Props 속성을 정의하고, 상위 컴포넌트의 템플릿에도 코드 추가 필요
     ##### `하위컴포넌트` : props 속성 정의
     ##### `상위 컴포넌트 템플릿` : v-bind:프롭스 속성명=상위 컴포넌트의 데이터 속성 정의
+
 ```javascript
 // 하위 컴포넌트의 내용
 var childComponent = {
   props: ['프롭스 속성 명']
 }
 ```
+
 ```html
 <!-- 상위 컴포넌트의 템플릿 -->
 <div id="app">
@@ -125,6 +127,7 @@ var childComponent = {
 ```
 
 ex.
+
 ```javascript
 <!DOCTYPE html>
 <html lang="en">
@@ -179,14 +182,14 @@ ___
 ```javascript
 // 하위 컴포넌트의 내용
 this.$emit('이벤트 명');
- 
 ```
+
+
 ```html
 <!-- 상위 컴포넌트의 템플릿 -->
 <div id="app">
   <child-component v-on:이벤트 명="상위 컴포넌트의 실행할 메서드 명 또는 연산"></child-component>
-</div>
- 
+</div> 
 ```
 
 ex.

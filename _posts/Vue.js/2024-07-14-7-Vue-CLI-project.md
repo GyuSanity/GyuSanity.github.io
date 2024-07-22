@@ -18,7 +18,9 @@ tag: [Vue.js]
 
 
 ## Vuecli 설치 및 실행
+
 - Install & crate project
+
 ```javascript
 #install
 npm install -g @vue/cli
@@ -26,7 +28,6 @@ or
 yarn global add @vue/cli
 #create project
 vue create vue3-cli
-
 #start
 cd vue3-cli
 yarn server => project 관련된 라이브러리 설치 (vue-cli-service serve, package.json에서 확인가능)
@@ -35,10 +36,14 @@ yarn server => project 관련된 라이브러리 설치 (vue-cli-service serve, 
 ## Project 폴더 내용 살펴보기
 
 - `package.json` : 이름/버전/커스텀스크립트(ex. yarn server), dependencies, devdependencies, eslint 설정등 확인 가능
+
     + `dependencies/devDependencies` : 배포용인지 개발용인지 차이며, npm i [lib, ex jquery]를 통해 설치되는 것이 dependencies이며, -d 를 붙이면 개발용 립으로 포함됨
+
     + 배포할때만 사용되는 라이브러리는 빌드 도구(webpack), 코드 문법 검사 도구(eslint), 이미지 압축도구(imagemin)등이 있음
+
 - `vue.config.js` : Vue 프로젝트 Webpack 관련 설정 가능(Ctrl+space로 추가 가능)
     + [eslint 외 도움이 되는 개발 도구](https://joshua1988.github.io/web-development/vuejs/boost-productivity/)
+
 - `public/index.html` : application 진입점 page(초기 보여주는 html 껍데기 파일), vue에서 작성한 프로젝트 결과물이 여기에 붙음
 
 - `main.js` : Vue 어플리케이션 인스턴스 생성 밑 #app div tag에 마운트

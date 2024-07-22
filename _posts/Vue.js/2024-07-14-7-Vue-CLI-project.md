@@ -7,10 +7,11 @@ tag: [Vue.js]
 
 ## Navigation Var
 
-***[vuecli](#vuecli)***
-***[vuecli 설치 및 실행](#vuecli-설치-및-실행)***
-***[project 폴더 내용 살펴보기](#project-폴더-내용-살펴보기)***
-***[vue실행결과확인하기](#vue-실행-결과-확인-하기)***
+***[vuecli](#vuecli)***   
+***[vuecli 설치 및 실행](#vuecli-설치-및-실행)***   
+***[project 폴더 내용 살펴보기](#project-폴더-내용-살펴보기)***   
+***[vue실행결과확인하기](#vue-실행-결과-확인-하기)***   
+
 
 ## VUECLI
 - Vue.js로 주로 사용하는 프로젝트 생성 도구 ( 명령어로 프로젝트를 간단히 생성 가능)

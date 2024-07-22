@@ -8,8 +8,9 @@ tag: [Vue.js]
 ## Navigation Var
 ***[vue single file component](#vue-single-file-component)***
 ***[웹팩이란](#웹팩이란---detail--link)***
-***[](#)***
-***[](#)***
+***[vuecli 프로젝트 구성](#vuecli-프로젝트-구성)***
+***[싱글 파일 컴포넌트 코드 작성 팁](#싱글-파일-컴포넌트-코드-작성-팁)***
+***[싱글 파일 컴포넌트 propsevnet emit 실습](#싱글-파일-컴포넌트-propsevnet-emit-실습)***
 
 ## [Vue Single File Component](https://joshua1988.github.io/vue-camp/vue/sfc.html)
 - 싱글 파일 컴포넌트는 화면의 특정 영역에 대한 HTML, CSS, JS 코드를 한 파일에서 관리하는 방법
@@ -45,7 +46,7 @@ tag: [Vue.js]
 <img src=https://joshua1988.github.io/webpack-guide/assets/img/webpack-bundling.e79747a1.png>
 
 
-## App Component
+## vuecli 프로젝트 구성
 - app.vue에서 template/script/style 확인이 가능하며, HTML TAG 특성상 대소문자를 구분하지 못하여 파스칼 case로 작성하는 것을 추천함
 - App.vue에서는 html/javascript/css 영역을 vue 싱글 파일 컴포넌트의 모습이며, javascript 영역에서 각 개별 싱글 파일 컴포넌트를 import 하여 하나의 거대한 컴포넌트 트리를 작성하는 것이다
 - main.js에서는 작성된 싱글 파일 컴포넌트들의 주인이 되는 곳이며, public/index.html에 마운트 되어 홈페이지 렌더링을 수행
@@ -169,6 +170,3 @@ export default {
 ```
 
 </details>
-
-
-- 

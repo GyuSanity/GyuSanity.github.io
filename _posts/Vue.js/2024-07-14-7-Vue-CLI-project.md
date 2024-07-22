@@ -11,7 +11,7 @@ tag: [Vue.js]
 ***[vuecli 설치 및 실행](#vuecli-설치-및-실행)***   
 ***[project 폴더 내용 살펴보기](#project-폴더-내용-살펴보기)***   
 ***[vue실행결과확인하기](#vue-실행-결과-확인-하기)***   
-
+***[npm](#npm)***   
 
 ## VUECLI
 - Vue.js로 주로 사용하는 프로젝트 생성 도구 ( 명령어로 프로젝트를 간단히 생성 가능)
@@ -101,5 +101,9 @@ createApp(App).mount('#app')
 ## Vue 실행 결과 확인 하기
 - network pannel을 보면 순차적으로 요청된 순서들을 확인할수 있음.
 - localhost 응답에는 app에는 아무 응답이 없는데 chunk-vender.js/app.js가 app 내용을 받아와 표현해주는 형태
+
+## [NPM](https://joshua1988.github.io/webpack-guide/build/node-npm.html#node-js%EC%99%80-npm)
+- 자바 스크립트 프로그래밍 언어를 위한 패키지 관리자
+- 전세계적으로 잘 쓰이는 자바스크립트 라이브러리(jquery, tenserflow, express..)를 가지고 있는 공개 저장소이다
 
 __ref__. NPM 무료 강의 : [LINK](https://www.inflearn.com/course/lecture?ourseSlug=%ED%94%84%EB%9F%B0%ED%8A%B8%EC%97%94%EB%93%9C-%EC%9B%B9%ED%8C%A9&unitId=37371)

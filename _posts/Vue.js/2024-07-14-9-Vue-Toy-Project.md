@@ -6,7 +6,9 @@ tag: [Vue.js]
 ---
 
 ## Navigation Var
-***[](#)***
+***[toy project(프로젝트 생성 및 로그인 폼 UI 구성)](#toy-project프로젝트-생성-및-로그인-폼-ui-구성)***
+***[v model 속성 및 동작 원리](#v-model-속성-및-동작-원리)***
+
 
 ## Toy Project(프로젝트 생성 및 로그인 폼 UI 구성)
 - Vue CLI 프로젝트 생성
@@ -32,6 +34,7 @@ yarn server
 <details>
 
 ```javascript
+
 <template>
   <form action="" @submit.prevent="submitForm">
     <div>
@@ -112,15 +115,12 @@ import { ref } from 'vue';
 ```javascript
 
 <input v-model="inputText">
-
 new Vue({
   data: {
     inputText: ''
   }
 })
-
 ```
-<img scr=https://joshua1988.github.io/images/posts/web/vuejs/v-model/v-model.gif>
 
 #### v-model 동작 원리
 

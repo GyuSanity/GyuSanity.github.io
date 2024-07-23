@@ -10,8 +10,9 @@ tag: [Vue.js]
 
 ## Toy Project(프로젝트 생성 및 로그인 폼 UI 구성)
 - Vue CLI 프로젝트 생성
- 
+   
 ```javascript
+
 vue create vue-toy-project
 cd vue-toy-project
 yarn server
@@ -69,7 +70,7 @@ import { ref } from 'vue';
     },
     // methods: {
     //   logText() {
-    //     this.pas
+    //     this.pas <----- return 된 값들은 다른 곳에서 사용가능
     //   }
     // }
 
@@ -99,8 +100,8 @@ import { ref } from 'vue';
 <style scoped>
 
 </style>
-```
 
+```
 </details>
 
 ## v-model 속성 및 동작 원리

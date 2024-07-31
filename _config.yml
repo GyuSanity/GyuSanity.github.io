@@ -44,6 +44,7 @@ nav:
     - { MarkDown: '/blog/categories/#MarkDown' }
     - { TypeScript: '/blog/categories/#TypeScript' }
     - { Vue.js: '/blog/categories/#Vue.js' }
+    - { VueProject: '/blog/categories/#VueProject' }
 
 
 # Where are tags and categories displayed

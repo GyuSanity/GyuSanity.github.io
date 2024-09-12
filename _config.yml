@@ -1,10 +1,10 @@
 # Site Info
 title: 개발노트
-tagline: 'GyuSanity 개발노트'
-description: '매일매일 배워나가는 개발자 GyuSanity의 블로그입니다'
+tagline: "GyuSanity 개발노트"
+description: "매일매일 배워나가는 개발자 GyuSanity의 블로그입니다"
 baseurl: ""
 url: https://gyusanity.github.io/
-logo: '/public/logo.png'
+logo: "/public/logo.png"
 
 # Site configurations
 gems:
@@ -15,9 +15,9 @@ kramdown:
 excerpt_separator: "<!-- more -->"
 sass:
   style: compressed
-  sass_dir: _scss    
+  sass_dir: _scss
 paginate: 5
-paginate_path: '/blog/page:num'
+paginate_path: "/blog/page:num"
 permalink: pretty
 
 version: 1.0.0
@@ -25,11 +25,12 @@ version: 1.0.0
 # About/contact
 author:
   name: GyuSanity
-  description: 매일매일 배워나가는 개발자 GyuSanity의 블로그입니다
+  description:
+    매일매일 배워나가는 개발자 GyuSanity의 블로그입니다
     #gravatar: 3c2986ad7ac1f2230ea3596f44563328 # md5 hash of your email address
   contact:
     #linkedin:  https://www.linkedin.com/in/lizhihao
-    github:    https://github.com/GyuSanity
+    github: https://github.com/GyuSanity
     # facebook:  <hide>
     #twitter:   https://twitter.com/Li_Zhihao
     #weibo:     http://weibo.com/41173780
@@ -37,19 +38,19 @@ author:
 
 # Navigation (2nd level links supported)
 nav:
-  Home:           
-    - '/'
+  Home:
+    - "/"
   Categories:
-    - '/blog/categories/'
-    - { MarkDown: '/blog/categories/#MarkDown' }
-    - { TypeScript: '/blog/categories/#TypeScript' }
-    - { Vue.js: '/blog/categories/#Vue.js' }
-    - { VueProject: '/blog/categories/#VueProject' }
-
+    - "/blog/categories/"
+    - { MarkDown: "/blog/categories/#MarkDown" }
+    - { TypeScript: "/blog/categories/#TypeScript" }
+    - { Vue.js: "/blog/categories/#Vue.js" }
+    - { VueProject: "/blog/categories/#VueProject" }
+    - { Security: "/blog/categories/#Securityt" }
 
 # Where are tags and categories displayed
-tag_page: '/blog/tags/'
-category_page: '/blog/categories/'
+tag_page: "/blog/tags/"
+category_page: "/blog/categories/"
 
 hero:
   image: /public/img/LinSanity.jpg
@@ -57,5 +58,5 @@ hero:
 
 # Puglins
 mathjax: true # whether support mathjax
-google_analytics_token: 'UA-00000000-1' # leave blank if you don't want google analytics
-disqus_short_name: 'Yeon Gyu Yang' # leave blank if you don't want disqus
+google_analytics_token: "UA-00000000-1" # leave blank if you don't want google analytics
+disqus_short_name: "Yeon Gyu Yang" # leave blank if you don't want disqus

@@ -47,8 +47,8 @@ nav:
     - { Vue.js: "/blog/categories/#Vue.js" }
     - { VueProject: "/blog/categories/#VueProject" }
     - { Security: "/blog/categories/#Securityt" }
-    - { DesignPattern: "/blog/categories/#DesignPattern" }
-    - { OOP_OOAD_UML: "/blog/categories/#OOP_OOAD_UML" }
+    - { DesignPattern: "/blog/categories/#Design Pattern" }
+    - { OOP_OOAD_UML: "/blog/categories/#OOP/OOAD/UML" }
 
 # Where are tags and categories displayed
 tag_page: "/blog/tags/"

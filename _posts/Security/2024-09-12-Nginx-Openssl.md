@@ -47,9 +47,9 @@ tag: [OpenSSL, Nginx, Http/Https]
 - CA 리스트는 브라우저가 가지고 있으며, 아래와 같이 구분
 
   - 공인 받은 CA가 발급한 SSL 인증서가 아닌 경우(사설기업 or 자체 서명한 인증서)
-    <img src=https://s3.ap-northeast-2.amazonaws.com/opentutorials-user-file/module/228/1536.gif>
+    <img src="/public/img/SSL/CA-x.png">
   - 공인받은 CA가 발급한 SSL 인증서일경우
-    <img src=https://s3.ap-northeast-2.amazonaws.com/opentutorials-user-file/module/228/1537.gif>
+    <img src="/public/img/SSL/CA-o.png">
 
   * 인증서가 포함하고 있는 정보들(공개키 + 서비스 정보)
     <img src="/public/img/SSL/Certificate.png">
@@ -61,6 +61,7 @@ tag: [OpenSSL, Nginx, Http/Https]
 | 대칭키(=Session Key)                        | 비대칭키(=공개키)                                      |
 | ------------------------------------------- | ------------------------------------------------------ |
 | ![Session Key](/public/img/SSL/session.png) | ![Session Key](/public/img/SSL/private_public_key.png) |
+| A<br>B<br>                                  |                                                        |
 
 - SSL의 핵심은 암호화이며, SSL은 보안과 성능상의 이유로 2가지 암호화 기법을 혼용ㅇ해서 사용
   1. `대칭키` : 동일한 키값을 가지고 암호화/복호화 하는 방식

@@ -65,10 +65,10 @@ tag: [OpenSSL, Nginx, Http/Https]
 
 ---
 
-- SSL의 핵심은 암호화이며, SSL은 보안과 성능상의 이유로 2가지 암호화 기법을 혼용ㅇ해서 사용
-  1. `대칭키` : 동일한 키값을 가지고 암호화/복호화 하는 방식
+- 대칭키와 공개키를 활용한 암호화 복호화
 
 ```bash
+## 대칭키
 #암호화(인코딩)
 // =>enc 수행시 비밀번호를 요구하는데 해당 비밀번호가 대칭키값이 됨
 echo 'this is the plain text' > plaintext.txt;
@@ -78,34 +78,100 @@ openssl enc -e -des3 -salt -in plaintext.txt -out ciphertext.bin;
 
 #복호화(디코딩)
 openssl enc -d -des3 -in ciphertext.bin -out plaintext2.txt;
+
+## 공개키
+#암호화(인코딩)
+//=> 비공개/공개키 생성
+openssl genrsa -out private.pem 1024;
+openssl rsa -in private.pem -out public.pem -outform PEM -pubout;
+echo 'coding everybody' > file.txt
+openssl rsautl -encrypt -inkey public.pem -pubin -in file.txt -out file.ssl;
+
+#복호화(디코딩)
+openssl rsautl -decrypt -inkey private.pem -in file.ssl -out decrypted.txt
+
 ```
 
-2. `공개키(비대칭키)` :
+## SSL 동작 방식 (대칭키/비대칭키 둘다 사용)
 
-- ***
+> 서버와 클라이언트간 통신 수행시 `Handshake > Transfer > Session Terminate` 순으로 이루어짐
 
-  ***
+1. HandShake
+   1. Clinet Hello
+      1. 초기 클라이언트가 서버측 HTTPS 접근 단계를 말함
+      2. 클라이언트측은 랜덤 데이터 + 지원하는 암호화방식 + 세션 ID를 서버한테 전달
+   2. Server Hello
+      1. 클라이언트에 대한 응답 단계
+      2. 서버측에서 랜덤데이터 + 서버측에서 선택한 암호화 방식 + 인증서(public key + 서비스 정보) 전달
+   3. 클라이언트측은 브라우저 내 CA 리스트들을 보며 인증서가 CA의해 발급됬는지 확인(**신뢰할수 있는 사이트인지 확인**)
+      1. 서버측에서 제공받은 public key를 가지고 서비스 정보를 복호화 수행. 복호화가 성공한다면 이는 CA에서 발급한 인증서임을 알수 있음
+      2. 클라이언트는 클라이언트에서 생성한 랜덤 데이터 + 서버측에서 제공해준 랜덤 데이터를 가지고 premaster key를 생헝
+      3. 생성된 premaster key를 public key로 암호화 후 서버측 전달(=> **비대칭 키 방식**)
+   4. 서버측은 클라리언트 측이 제공한 암호화된 premaster key를 private key로 복호화하여 공통의 세션키(대칭키)를 획득
+2. Transfer 1.주고받은 대칭키를 가지고 보낼 데이터가 있으면 암호화하여 보내고 받는 쪽은 복화화 수행(**대칭 키 방식**). 이를 통해 공격자로 부터 정보 노출 방어
+3. Session Terminate
+   1. 데이터 전송이 끝나면 SSL 통신이 끝났음을 서로에게 알린 후 생성된 대칭키 폐기
 
-  ***
+<img src="/public/img/SSL/handshake.png">
 
-  ***
+- **그림으로 보는 session key 생성 과정**
+  <img src="/public/img/SSL/figure_keygen.png">
 
-  ***
+---
 
-  ***
+## Openssl을 활용한 인증서 발급 및 Nginx 적용
 
-  ***
+> 사설 인증서 발급 및 자체 서명
 
-  ***
+```bash
+#public key 생성
+openssl genrsa -out /etc/ssl/private/nginx-selfsigned.key 2048
 
-  ***
+#인증서 서명 요청(CSR, Certificate Signing Request) 생성
+openssl req -new -key /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/nginx-selfsigned.csr
 
-  ***
 
-  ***
+# 자체 서명된 인증서(CRT, Certificate) 발급
+openssl x509 -req -days 365 -in /etc/ssl/nginx-selfsigned.csr -signkey /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/nginx-selfsigned.crt
 
-  ***
+```
+
+> Nginx key/crt 적용 및 포트 설정
+
+```
+server {
+    listen 443 ssl; # HTTPS 포트
+    server_name your_domain.com;
+
+    ssl_certificate /etc/ssl/nginx-selfsigned.crt;
+    ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
+
+    access_log /root/access.log
+    error_log /root/error.log
+
+    # SSL 설정
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers on;
+    ssl_ciphers 'ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256';
+
+    location / {
+        root /var/www/html;
+        index index.html;
+    }
+}
+
+# HTTP 요청을 HTTPS로 리다이렉트
+server {
+    listen 80;
+    server_name your_domain.com;
+    return 301 https://$server_name$request_uri;
+}
+```
+
+---
 
 ## REF
 
 - 생활코딩 : [link](https://opentutorials.org/course/228/4894)
+- SSL Handshake : [link](https://babbab2.tistory.com/7)
+- Key Generate : [link](https://mangkyu.tistory.com/98)

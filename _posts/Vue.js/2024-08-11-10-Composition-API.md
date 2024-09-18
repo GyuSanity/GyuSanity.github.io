@@ -8,7 +8,6 @@ tag: [Vue.js, compositionAPI]
 ## Navigation Var
 
 - **[Composition API란?](#composition-api란)**
-- **[Composition API란?](#composition-api란)**
 - **[Composition API 등장 배경](#composition-api-등장-배경)**
 - **[Composition API Basic](#composition-api-basic)**
 - **[Composition API 장점](#composition-api-장점)**
@@ -99,8 +98,7 @@ export default {
 - vue3로 넘어가면서 **typesciprt를 적용**하여 변수/함수 타입을 하도록 하여 setup 내에서 **타입 추론**이 용이해졌음
 - **Destructuring 문법**으로 원하는 변수/함수를 꺼내 코드 함수 **재사용성을 높일수 있음**
 
-<img src="/public/img/VueLecture/
-VuecompositionAPI.png">
+<img src="/public/img/VueLecture/VuecompositionAPI.png">
 
 - 재사용되는 변수/함수의 setup 부분을 hook/components에 빼두고 destructuring 문법으로 빼내와 사용 가능
 

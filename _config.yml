@@ -49,6 +49,7 @@ nav:
     - { Security: "/blog/categories/#Securityt" }
     - { DesignPattern: "/blog/categories/#Design Pattern" }
     - { OOP_OOAD_UML: "/blog/categories/#OOP/OOAD/UML" }
+    - { DeepLearning: "/blog/categories/#Pytorch" }
 
 # Where are tags and categories displayed
 tag_page: "/blog/tags/"

@@ -71,19 +71,25 @@ tag: [DeapLearning, pytorch]
   - `멀티 모달 데이터` : 입력으로 두개 이상의 유형 데이터를 사용하는 경우를 말함
 - 멀티 모달 데이터로 학습하는 과정을 멀티모달 하습 이라고도 말하며, 최근 활발하게 연구되고 있는 분야중 하나임.
 
-#### 모델
+#### 모델(SVM[soft vector]/DT[엔트로피]/NN[신경망])
 
-## <img src="/public/img/PyTorch/Lec3/13.png">
+<img src="/public/img/PyTorch/Lec3/13.png">
 
 - 앞 딥러닝 데이터 파이프 라인에서 이야기 햇듯이,
   - 딥러닝의 경우, 데이터 -(전처리)-> 모델 -> 출력 -(오차계산)-> Model Update(Optimization)이라고 했었는데 이번에는 데이터 이후인 모델에 대해 좀더 자세히 보겠음
+- 모델에 대해 2가지 관점(기계학습[ML]/뉴럴네트워크[DL])으로 설명예정
+- `커널 기반의 모델`의 경우 데이터를 다차원인 특정 평면위에서 잘 분류할수 있는 초평면을 찾는 것이며 Soft Vector를 찾는 모델로 대표적인 SVM(Soft Vector Model)이 있음
 
-<img src="/public/img/PyTorch/Lec3/1.png">
-<img src="/public/img/PyTorch/Lec3/1.png">
-<img src="/public/img/PyTorch/Lec3/1.png">
-<img src="/public/img/PyTorch/Lec3/1.png">
-<img src="/public/img/PyTorch/Lec3/1.png">
-<img src="/public/img/PyTorch/Lec3/1.png">
-<img src="/public/img/PyTorch/Lec3/1.png">
-<img src="/public/img/PyTorch/Lec3/1.png">
-<img src="/public/img/PyTorch/Lec3/1.png">
+<img src="/public/img/PyTorch/Lec3/14.png">
+- 정보량(Entropy)을 기반으로 하는 모델
+  - 데이터정보량(Entropy) - 정보획득(Information Gain)을 계산하여 정보 획득을 최대화하는 방향으로 학습하는 모델을 말하며 대표적인 예로 `Decision Tree`가 있음
+  - Entropy(불확싱성) : Entrophy는 추후 Loss Function에서 설명된 Cross Entrophy에도 나올예정인데, 확률(x)에 따른 엔트로피값(불확실성, y)를 보면 50%에 1을 갖음.
+  -  예를 들어 동전던지기를 할 경우, 앞뒤 둘다 50%의 확률인데 돈을 걸라고 하라고 할 경우 그냥 찍기임(불확실성이 매우 높은 상황임)
+  -  예를 들어 6면 주사위에 앞 5개/뒤1개를 넣었을 경우 A가 나올 확률이 5/6이고 B는 1/6임으로 이때 정보량을 보면 5/6임으로`정보량이 가치가 낮음(누구나 다 아는 정보임으로)`. 이는 엔트로피(불확실성)가 매우 낮은 상황이라고함.
+  - 따라서 정보량 기반 모델 학습은 학습을 통해 엔트로피(불확실성)을 낮추는 방향으로 학습하는 과정을 말함.
+  \+ 예시로 나온 그림의 경우, Decision Tree를 보여주는 그림인데 2개의 그룹군으로 나눠가면서  이전 모델의 엔트로피와 분기된 모델의 엔트로피 값을 최대화 하는 방향으로 학습을 시킴
+
+<img src="/public/img/PyTorch/Lec3/15png">
+- 입력과 이를 얼마나 가중치를 줘서 전달할지에 대한 값들이 전달하고,
+- 이를 계속 전달해 나갈지 말지에 `활성화 함수(Activation Function)를 주어 동작하는 것이 신경망 모델
+- 신경망 모델이 요즘 제일 hot하며 인기있는 모델이다

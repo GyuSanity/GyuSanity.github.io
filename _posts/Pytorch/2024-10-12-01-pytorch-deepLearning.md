@@ -5,6 +5,11 @@ category: DeapLearning
 tag: [DeapLearning, pytorch]
 ---
 
+## Ref
+
+- [day1](1https://gyusanity.github.io/ai/2024/10/17/day1/)
+- [day2](https://gyusanity.github.io/ai/2024/10/18/day2/)
+
 ## Navigation Var
 
 - **[OT](#ot)**

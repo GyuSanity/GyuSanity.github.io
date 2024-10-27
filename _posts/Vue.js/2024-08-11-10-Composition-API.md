@@ -18,6 +18,7 @@ tag: [Vue.js, compositionAPI]
 ## Composition API란?
 
 - 컴포넌트의 재사용성을 높여주는 것이 `Composition API` 이다
+- 즉 함수형 기반의 API = `Composition API`다
 - Vue3에서만 지원하지 않고 Vue2에서도 Composition API를 지원하고 있음!
 
 ---

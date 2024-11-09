@@ -51,6 +51,7 @@ nav:
     - { OOP_OOAD_UML: "/blog/categories/#OOP/OOAD/UML" }
     - { DeepLearning: "/blog/categories/#Pytorch" }
     - { Portfolio: "/blog/categories/#Portfolio" }
+    - { FastAPI: "/blog/categories/#FastAPI" }
     # - { AI: "/blog/categories/#AIEssential" }
 
 # Where are tags and categories displayed

@@ -144,9 +144,12 @@ https://www.jetbrains.com/pycharm/download/#section=windows
     - Todo 삭제 : /api/v1/todos/<id>
 - 위 실습을 통해 기본적인 FastAPI를 학습하고 발전 시켜 나가볼꺼임
 
-## \+ 최종 완성본 Repo : [Link](https://github.com/qu3vipon/inflearn-todos)
+\+ 최종 완성본 Repo : [Link](https://github.com/qu3vipon/inflearn-todos)
 
-##
+## 프로젝트 구성 및 실행
+
+- [Repo](https://github.com/GyuSanity/FastAPI)의 README.md 확인
+- OpenAPI로 API 문서 확인 : http://127.0.0.1:8800/docs
 
 --
 

@@ -128,7 +128,7 @@ https://www.jetbrains.com/pycharm/download/#section=windows
         - PATCH /api/v1/posts/123 -> post 수정(Update)
         - DELETE /api/v1/posts/123 -> post 삭제(Delete)
 
---
+---
 
 ## Todo 서비스 만들기 (실습)
 
@@ -151,12 +151,206 @@ https://www.jetbrains.com/pycharm/download/#section=windows
 - [Repo](https://github.com/GyuSanity/FastAPI)의 README.md 확인
 - OpenAPI로 API 문서 확인 : http://127.0.0.1:8800/docs
 
---
+---
+
+## HTTP Status Code (Http 상태 코드)
+
+> 2xx
+>
+> > 200 OK 요청 성공(범용적) GET/POST/PATCH
+> > 201 Created 요청 성공, 새로운 자원 생성(POST)
+> > 204 No Content 요청 성공, 응답할 자원 없음(DELETE)
+
+> 4xx
+>
+> > 400 Bad Request 요청실패, 요청이 잘못된 경우 (query param, body)
+> > 401 Unauthorized 인증실패
+> > 403 Forbidden 권한문제 또는 잘못된 Method
+> > 404 Not Found 자원이 없는 경우 또는 잘못된 endpoint, GET/PATCH/Delete 등 자원 없으면 다 요거임
+
+> 5xx
+>
+> > 500 Internal Server Error 범용적인 서버에러
+> > 502 Bad Gateway Reverse Proxy에서 서버의 응답을 처리할수 없는 경우
+> > 503 Service Unavailable 서버가 요청을 처리할수 없는 경우(ex. 일시적 부하, 서버 다운)
+
+---
+
+## FAST API GET/POST/PATCH/DELETE
+
+```python
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def health_check_handler():
+    return {"ping" : "pong"}
+
+
+## GET Method - 전체 조회
+## Dictionary 자료형 기본 Methods
+# 2-1. dict.keys(): 사전의 키 목록
+# 2-2. dict.values(): 사전의 값 목록
+# 2-3. dict.items(): 사전의 (키, 값) 튜플 목록 
+# 2-4. dict.clear(): 사전의 모든 {키, 값} 셋 제거
+# 2-5. dict.copy(): 사전의 {키 : 값} 셋 복사
+# 2-6. dict.fromkeys(seq, value): seq, value 셋으로 신규 사전 생성
+# 2-7. dict.get(key, default=None): 키에 할당된 값 반환
+# 2-8. dict.setdefault(key, default=None) : 키에 할당된 값 반환
+# 2.9. dict.update(dict2): 기존 사전에 새로운 사전 dict2 추가
+todo_data = {
+    1: {
+        "id":1,
+        "contents":"실전! FastAPI 섹션 0 수강",
+        "is_done": False,
+    },
+    2: {
+        "id":2,
+        "contents":"실전! FastAPI 섹션 0 수강",
+        "is_done": False,
+    },
+    3: {
+        "id":3,
+        "contents":"실전! FastAPI 섹션 0 수강",
+        "is_done": False,
+    },
+    4: {
+        "id":4,
+        "contents":"실전! FastAPI 섹션 0 수강",
+        "is_done": False,
+    },
+}
+
+@app.get("/todos", status_code=200)
+def get_todos_handler() :
+    return list(todo_data.values()) ## List 형태로 묶어줘야 에러가 없음
+
+## GET Method - 전체 조회, 쿼리 파라미터 추가
+## ex. localhost:8800/todos?order=DESC
+@app.get("/todos")
+def get_todos_handler(order: str| None = None):
+    ret = list(todo_data.values())
+    if order and order == "DESC" :
+        return ret[::-1]
+    return ret
+
+
+## GET API - 단일 조회 (중괄호 사이 변수 = path로 이용 가능)
+## ex. localhost:8800/todos/2
+from fastapi import HTTPException
+@app.get("/todos/{todo_id}", status_code=200)
+def get_todo_handler(todo_id: int):
+    todo = todo_data.get(todo_id, {})
+    if todo :
+        return todo
+    raise HTTPException(status_code=404, detail="ToDo Not Found")
+
+## POST Method : post 생성
+## 사용자로 부터 데이터(request body)를 받아야하는데,
+## pydantic의 basemodel을 사용해서 request body를 처리할 예정
+## ex.
+#### BaseModel을 상속 받은 CreteToDoRequest 클래스를 생성 후,
+#### post path의 함수 인자로 전달 시 fastAPI가 알아서 requestBody를
+#### CreateToDoRequest에 맞춰서 채워줌
+#### 단, todo_data[request.id]의 Value는 dict로 선언되어 있어 request 클래스를 전달하면
+####     type이 다르다고 에러가 남으로 dict()로 변환 필요(BaseModel에서 제공하는 메서드임)
+from pydantic import BaseModel
+class CreateToDoRequest(BaseModel):
+    id : int
+    contents: str
+    is_done:bool
+
+
+@app.post("/todos", status_code=201)
+def create_todo_handler(request: CreateToDoRequest):
+    todo_data[request.id] = request.dict()
+    return todo_data[request.id]
+
+
+## PATCH Method - 수정
+#### is_done 값만을 업데이트 할 예정이라 위 post 메서드 처럼 request body를 전체를 전달하지 않고
+#### is_done만 처리할 것이라 fastapi의 Body 모듈을 가져올 거임
+from fastapi import Body
+@app.patch("/todos/{todo_id}", status_code=200)
+def update_todo_handler(
+    todo_id: int,
+    is_done: bool = Body(..., embed=True),
+    ):
+    todo = todo_data.get(todo_id)
+    if todo:
+        todo["is_done"] = is_done
+        return todo
+    raise HTTPException(status_code=404, detail="Todo Not Found")
+
+
+## Delete Method - 삭제
+@app.delete("/todos/{todo_id}", status_code="204")
+def delete_todo_handler(todo_id: int):
+    todo = todo_data.pop(todo_id, None)
+    if todo :
+        return
+
+    raise HTTPException(404, "Not Found")
+
+```
+
+---
+
+## DataBase
+
+- 데이터베이스란?
+  - 대량의 데이터를 영구적으로 저장/관리하기 위한 시스템
+- 데이터베이스 분류
+  - `관계형 데이터베이스(Relational Database, RDB)`
+    - 관계형 모델에 기반해서 데이터를 테이블, 행, 열 구조로 관리(=Schemaful) => 엑셀이랑 같다고 보면됨
+    - 데이터의 일관성을 유지하기 쉬워서 범용적으로 많이 사용됨
+    - ex. Oracle, MySQL, PostgreSQL, sqlite, ...
+  - `비관계형 데이터베이스(NoSQL)`
+    - 종류가 다양하고 각각의 용도와 장단점이 명확하기 때문에 목적에 맞게 관계형 데이터 베이스와 조합해서 사용함
+
+| NoSQL 목적  | 종류                  |
+| ----------- | --------------------- |
+| Key-Value   | Redis, etcd           |
+| Document    | MongoDB               |
+| Wide-Column | cassandra, ScyllaDB   |
+| Timeseries  | Apach Druid, InfluxDB |
+| Graph       | Neo4j                 |
+
+---
+
+## sqlalchemy 소개
+
+- `sqlalchemy`
+
+  - RDB를 사용하기 위한 High-Level 인터페이스를 제공하는 python 라이브러리
+  - ex. ORM, Query, Transaction, Connection Pooling 기능등을 쉽게 사용 가능
+
+- `ORM(Object-Relational Mapping)`
+  - 관계형 데이터베이스를 객체 지향 프로그래밍(OOP)에 대응하여 사용하는 프로그래밍 기술
+  - 하나의 테이블 = 하나의 클래스
+  - 하나의 행(레코드) = 하나의 객체
+
+ex.
+<데이터베이스> =========> <Python>
+id | username =========> user = User(id=1, username="gy.yeon")
+1 | gyyeon
+
+---
 
 ##
 
---
+---
 
 ##
 
---
+---
+
+##
+
+---
+
+##
+
+---
